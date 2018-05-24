@@ -19,7 +19,6 @@ function getInitState() {
             'name': item.name,
         }
     }
-    console.log(state)
     return state
 }
 
@@ -41,7 +40,6 @@ class PingCard extends Component {
     }
 
     getTag(status) {
-        console.log(status)
         if (status.type === 'loading') {
             return <Tag key={status.name} color="#2db7f5">{status.name}: Loading</Tag>
         } else if (status.type === 'online') {
