@@ -54,23 +54,31 @@ class App extends Component {
                                 value={this.state.input.host}
                                 onChange={this.updateHost.bind(this)}
                                 placeholder="Host"
-                                style={{ width: '70%' }} />
+                                style={{ width: '60%' }} />
                             <InputNumber
                                 value={this.state.input.port}
                                 onChange={this.updatePort.bind(this)}
                                 placeholder="Port"
-                                style={{ width: '15%' }} />
+                                style={{ width: '20%' }} />
                             <Button
                                 onClick={this.addHost.bind(this)}
-                                style={{ width: '15%' }}
+                                style={{ width: '20%' }}
                                 type="primary">
-                            Add</Button>
+                            Ping</Button>
                         </Input.Group>
                         <Row>
                             {this.state.hosts.map(item => {
-                                return (<Col key={item.uuid} xs={12} sm={6} md={6} lg={4} style={{ padding: '16px' }}>
-                                    <PingCard host={item.host} port={item.port} />
-                                </Col>)
+                                return (
+                                    <Col
+                                        key={item.uuid}
+                                        xs={12}
+                                        sm={6}
+                                        md={6}
+                                        lg={4}
+                                        style={{ padding: '16px' }}>
+                                        <PingCard host={item.host} port={item.port} />
+                                    </Col>
+                                )
                             })}
                         </Row>
                     </Layout.Content>
