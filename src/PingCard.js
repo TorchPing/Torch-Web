@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Tag } from 'antd'
+import { Row, Col } from 'react-flexbox-grid'
 import serverList from './serverList.json'
 import axios from 'axios'
 
@@ -53,10 +54,13 @@ class PingCard extends Component {
             <Card
                 title={this.props.host + ':' + this.props.port}
             >
-
-                {serverList.map(item =>
-                    this.getTag(this.state[item.name])
-                )}
+                <Row>
+                    {serverList.map(item =>
+                        <Col style={{padding: '4px 0px'}}>
+                            {this.getTag(this.state[item.name])}
+                        </Col>
+                    )}
+                </Row>
 
             </Card>
         )
