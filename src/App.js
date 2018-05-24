@@ -14,7 +14,7 @@ class App extends Component {
         }, {
             'host': 'www.google.com',
             'port': 443,
-        }]
+        }],
     }
 
     render() {
@@ -43,4 +43,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App

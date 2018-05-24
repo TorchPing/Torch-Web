@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Icon, Layout } from 'antd';
+import { Menu, Icon, Layout } from 'antd'
 
 class Navbar extends Component {
     render() {
@@ -12,7 +12,7 @@ class Navbar extends Component {
                         style={{ lineHeight: '64px' }}
                     >
                         <Menu.Item key="mail">
-                        <Icon type="appstore" />Torch
+                            <Icon type="appstore" />Torch
                         </Menu.Item>
                     </Menu>
                 </Layout.Header>

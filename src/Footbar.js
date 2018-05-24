@@ -6,7 +6,8 @@ class Footbar extends Component {
         return (
             <Layout>
                 <Layout.Footer style={{ textAlign: 'center' }}>
-                    <a href="https://github.com/Indexyz/Torch-Web">Torch</a>, ©2018 Created by <a href="https://blog.indexyz.me">Indexyz</a>
+                    <a href="https://github.com/Indexyz/Torch-Web">Torch</a>
+                    , ©2018 Created by <a href="https://blog.indexyz.me">Indexyz</a>
                 </Layout.Footer>
             </Layout>
         )
