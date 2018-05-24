@@ -28,14 +28,15 @@ class PingCard extends Component {
 
     async componentDidMount() {
         for (const item of serverList) {
-            const itemOnline = await ping(item.address, this.props.host, this.props.port)
-
-            this.setState({
-                [item.name]: {
-                    'type': itemOnline === true ? 'online' : 'offline',
-                    'name': item.name,
-                },
-            })
+            ping(item.address, this.props.host, this.props.port)
+                .then(isOnline => {
+                    this.setState({
+                        [item.name]: {
+                            'type': isOnline === true ? 'online' : 'offline',
+                            'name': item.name,
+                        },
+                    })
+                })
         }
     }
 
