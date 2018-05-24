@@ -34,9 +34,7 @@ class App extends Component {
         })
     }
 
-    updatePort(event) {
-        const value = event.target.value
-
+    updatePort(value) {
         this.setState(pre => {
             pre.input.port = value
             return pre
