@@ -7,11 +7,12 @@ class Navbar extends Component {
             <Layout>
                 <Layout.Header>
                     <Menu
+                        theme="dark"
                         mode="horizontal"
                         style={{ lineHeight: '64px' }}
                     >
                         <Menu.Item key="mail">
-                        <Icon type="mail" />Torch
+                        <Icon type="appstore" />Torch
                         </Menu.Item>
                     </Menu>
                 </Layout.Header>

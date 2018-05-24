@@ -1,1 +1,5 @@
 @import '~antd/dist/antd.css';
+
+.siteContext {
+    min-height: calc(100vh - 64px - 69px);
+}
