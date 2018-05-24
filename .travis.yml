@@ -20,6 +20,7 @@ deploy:
   github_token: $GITHUB_TOKEN
   target_branch: gh-pages
   email: jiduye@gmail.com
+  file: build/**/*
   name: Travis Automatically Bot
   on:
     branch: master
