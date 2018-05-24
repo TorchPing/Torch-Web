@@ -1,4 +1,7 @@
 [{
     "name": "China-WenZhou",
     "address": "https://cn-wz-tcping.torch.njs.app"
+}, {
+    "name": "USA-KS",
+    "address": "https://usa-ks-tcping.torch.njs.app"
 }]
