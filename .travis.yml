@@ -12,6 +12,7 @@ cache:
 
 after_success:
   - yarn build
+  - echo "torch.njs.app" > build/CNAME
 
 deploy:
   provider: pages
