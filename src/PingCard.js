@@ -55,7 +55,7 @@ class PingCard extends Component {
         } else if (status.type === 'error') {
             return <Tag key={status.name} color="#f50">{status.name}: Error</Tag>
         }
-        return <Tag key={status.name} color="#87d068">{status.name}: {status.type}</Tag>
+        return <Tag key={status.name} color="#87d068">{status.name}: {status.type.toFixed(2)} ms</Tag>
     }
 
     render() {
