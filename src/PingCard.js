@@ -7,7 +7,7 @@ import axios from 'axios'
 async function ping(apiRoot, host, port) {
     const res = await axios.get(`${apiRoot}/${host}/${port}`)
 
-    return res.data.status
+    return res.data
 }
 
 function getInitState() {
@@ -28,10 +28,18 @@ class PingCard extends Component {
     async componentDidMount() {
         for (const item of serverList) {
             ping(item.address, this.props.host, this.props.port)
-                .then(isOnline => {
+                .then(data => {
                     this.setState({
                         [item.name]: {
-                            'type': isOnline === true ? 'online' : 'offline',
+                            'type': data.status === true ? data.time : 'offline',
+                            'name': item.name,
+                        },
+                    })
+                })
+                .catch(() => {
+                    this.setState({
+                        [item.name]: {
+                            'type': 'error',
                             'name': item.name,
                         },
                     })
@@ -42,10 +50,12 @@ class PingCard extends Component {
     getTag(status) {
         if (status.type === 'loading') {
             return <Tag key={status.name} color="#2db7f5">{status.name}: Loading</Tag>
-        } else if (status.type === 'online') {
-            return <Tag key={status.name} color="#87d068">{status.name}: Up</Tag>
+        } else if (status.type === 'offline') {
+            return <Tag key={status.name} color="#f50">{status.name}: Down</Tag>
+        } else if (status.type === 'error') {
+            return <Tag key={status.name} color="#f50">{status.name}: Error</Tag>
         }
-        return <Tag key={status.name} color="#f50">{status.name}: Down</Tag>
+        return <Tag key={status.name} color="#87d068">{status.name}: {status.type}</Tag>
     }
 
     render() {
