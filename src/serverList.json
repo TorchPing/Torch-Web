@@ -2,6 +2,9 @@
     "name": "China-WenZhou",
     "address": "https://cn-wz-tcping.torch.njs.app"
 }, {
+    "name": "China-ShangHai",
+    "address": "http://118.25.37.230:3000"
+}, {
     "name": "USA-LOS",
     "address": "https://usa-los-tcping.torch.njs.app"
 }, {
