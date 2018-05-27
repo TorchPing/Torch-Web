@@ -1,13 +1,13 @@
 [{
-    "name": "China-WenZhou",
+    "name": "China-Wenzhou",
     "address": "https://cn-wz-tcping.torch.njs.app"
 }, {
-    "name": "China-ShangHai",
+    "name": "China-Shanghai",
     "address": "https://cn-sh-tcping.torch.njs.app"
 }, {
     "name": "USA-LOS",
     "address": "https://usa-los-tcping.torch.njs.app"
 }, {
-    "name": "China-QuanZhou",
+    "name": "China-Quanzhou",
     "address": "https://cn-qz-tcping.torch.njs.app"
 }]
