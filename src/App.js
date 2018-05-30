@@ -74,7 +74,7 @@ class App extends Component {
                                         md={6}
                                         lg={4}
                                         style={{ padding: '16px' }}>
-                                        <PingCard host={item.host} port={item.port} />
+                                        <PingCard host={item.host} port={item.port} title={item.title} />
                                     </Col>
                                 )
                             })}
