@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Card, Tag } from 'antd'
-import { Row, Col } from 'react-flexbox-grid'
+import React, {Component} from 'react'
+import {Card, Tag, Popover} from 'antd'
+import {Row, Col} from 'react-flexbox-grid'
 import serverList from './serverList.json'
 import axios from 'axios'
 
@@ -73,7 +73,9 @@ class PingCard extends Component {
                 <Row>
                     {serverList.map(item =>
                         <Col style={{padding: '4px 0px'}}>
-                            {this.getTag(this.state[item.name])}
+                            <Popover content={item.info} title="赞助商信息">
+                                {this.getTag(this.state[item.name])}
+                            </Popover>
                         </Col>
                     )}
                 </Row>
