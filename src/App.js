@@ -16,11 +16,11 @@ class App extends Component {
         },
     }
 
-    addHost() {
+    addHost = (docs) => {
         this.setState(pre => {
             pre.hosts = [Object.assign({
                 'uuid': uuid.v4(),
-            }, this.state.input), ...pre.hosts]
+            }, docs), ...pre.hosts]
             return pre
         })
     }
@@ -59,7 +59,7 @@ class App extends Component {
                                 placeholder="Port"
                                 style={{ width: '20%' }} />
                             <Button
-                                onClick={this.addHost.bind(this)}
+                                onClick={() => this.addHost(this.state.input)}
                                 style={{ width: '20%' }}
                                 type="primary">
                             Ping</Button>
