@@ -1,17 +1,21 @@
 [{
     "name": "China-Wenzhou",
     "address": "https://cn-wz-tcping.torch.njs.app",
-    "info": "不知道"
+    "info": "Indexyz"
 }, {
     "name": "China-Shanghai",
     "address": "https://cn-sh-tcping.torch.njs.app",
-    "info": "不知道"
+    "info": "ItsLucas"
 }, {
     "name": "USA-LOS",
     "address": "https://usa-los-tcping.torch.njs.app",
-    "info": "不知道"
+    "info": "Indexyz"
 }, {
     "name": "China-Quanzhou",
     "address": "https://cn-qz-tcping.torch.njs.app",
-    "info": "不知道"
+    "info": "Indexyz"
+}, {
+    "name": "China-Guangzhou",
+    "address": "https://torch-indexyz.doge.me",
+    "info": "DogeSpeed https://doge.me"
 }]
