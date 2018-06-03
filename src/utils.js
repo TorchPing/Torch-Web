@@ -71,6 +71,8 @@ function parseNormalLink(origin) {
             host: splited[0],
             port: Number(splited[1]),
         }
+    } else if (origin === '') {
+        return null
     }
     return {
         host: origin,
