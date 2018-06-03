@@ -1,4 +1,5 @@
 import base64 from './base64'
+import axios from 'axios'
 
 /**
  *
@@ -81,15 +82,34 @@ function parseNormalLink(origin) {
 }
 
 /**
+ * Test ShadowsocksR Subscription link
+ *
+ * @param {string} origin
+ */
+async function parseSSRSubscription(origin) {
+    const subscriptionLink = origin.substr(4)
+    const reqURL = `https://cors-anywhere.herokuapp.com/${subscriptionLink}`
+    const resp = await axios.get(reqURL)
+
+    const r = urlSafeBase64Decode(resp.data)
+        .split('\n')
+        .map(item => item.trim())
+
+    return Promise.all(r.map(parseLink))
+}
+
+/**
  * Get link parsed object
  *
  * @param {string} link
  * @returns {object} parsed object
  */
-function parseLink(link) {
+async function parseLink(link) {
     try {
         if (link.startsWith('ssr://')) {
             return parseSSRLink(link)
+        } if (link.startsWith('sub:')) {
+            return await parseSSRSubscription(link)
         }
         return parseNormalLink(link)
     } catch (e) {

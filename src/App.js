@@ -67,14 +67,21 @@ class App extends Component {
     }
 
     handleMultiAdd = () => {
-        const lines = this.state.text.split('\n')
-            .map(parseLink)
-            .filter(link => link !== null)
-
         this.handleCancel()
 
         const action = async () => {
             let counter = 0
+            const lines = (await Promise.all(this.state.text.split('\n')
+                .map(item => item.trim())
+                .map(parseLink)))
+                .reduce((previous, current) => {
+                    console.log(current)
+                    if (Array.isArray(current)) {
+                        return [...current, ...previous]
+                    }
+                    return [current, ...previous]
+                }, [])
+                .filter(link => link !== null)
 
             for (const line of lines) {
                 counter += 1
@@ -154,7 +161,7 @@ class App extends Component {
                         placeholder="Input context"
                         autosize={{ minRows: 6 }}
                         onChange={this.updateText.bind(this)} />
-                    <small>使用 域名:端口或者 SSR 链接来测试 一行一个</small>
+                    <small>使用 域名:端口, SSR 链接, 或者 sub:SSR订阅地址 来测试 一行一个</small>
                 </Modal>
                 <Footbar />
             </div>
