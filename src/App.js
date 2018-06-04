@@ -1,21 +1,20 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Footbar from './Footbar'
 import PingCard from './PingCard'
-import {Row, Col} from 'react-flexbox-grid'
-import {parseLink} from './utils'
+import { Row, Col } from 'react-flexbox-grid'
+import { parseLink } from './utils'
 import {
     Layout,
     Input,
     Button,
     InputNumber,
     Modal,
-    message
-} from 'antd'
+    message } from 'antd'
 import uuid from 'uuid'
 import './App.css'
 
-const {TextArea} = Input
+const { TextArea } = Input
 
 class App extends Component {
     state = {
@@ -109,31 +108,31 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Navbar/>
+                <Navbar />
                 <Layout className="siteContext">
-                    <Layout.Content style={{padding: '16px 32px'}}>
+                    <Layout.Content style={{ padding: '16px 32px' }}>
                         <Input.Group compact>
                             <Input
                                 value={this.state.input.host}
                                 onChange={this.updateHost.bind(this)}
                                 placeholder="Host"
-                                style={{width: '60%'}}/>
+                                style={{ width: '60%' }} />
                             <InputNumber
                                 value={this.state.input.port}
                                 onChange={this.updatePort.bind(this)}
                                 placeholder="Port"
-                                style={{width: '20%'}}/>
+                                style={{ width: '20%' }} />
                             <Button
                                 onClick={() => this.addHost(this.state.input)}
-                                style={{width: '20%'}}
+                                style={{ width: '20%' }}
                                 type="primary">
                                 Ping</Button>
                         </Input.Group>
-                        <br/>
+                        <br />
                         <Input.Group compact>
                             <Button
                                 onClick={this.showModal}
-                                style={{width: '50%'}}
+                                style={{ width: '50%' }}
                                 type="primary">
                                 批量测试</Button>
 
@@ -147,8 +146,8 @@ class App extends Component {
                                         sm={6}
                                         md={6}
                                         lg={4}
-                                        style={{padding: '16px'}}>
-                                        <PingCard host={item.host} port={item.port} title={item.title}/>
+                                        style={{ padding: '16px' }}>
+                                        <PingCard host={item.host} port={item.port} title={item.title} />
                                     </Col>
                                 )
                             })}
@@ -163,8 +162,8 @@ class App extends Component {
                 >
                     <TextArea
                         placeholder="Input context"
-                        autosize={{minRows: 6}}
-                        onChange={this.updateText.bind(this)}/>
+                        autosize={{ minRows: 6 }}
+                        onChange={this.updateText.bind(this)} />
                     <small>目前支持以下链接格式：</small>
                     <small>
                         <li>
@@ -178,7 +177,7 @@ class App extends Component {
                         一行一个链接，一次可混合多种链接检测
                     </small>
                 </Modal>
-                <Footbar/>
+                <Footbar />
             </div>
         )
     }
