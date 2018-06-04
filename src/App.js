@@ -76,6 +76,9 @@ class App extends Component {
                 .map(parseLink)))
                 .reduce((previous, current) => {
                     console.log(current)
+                    if (current === null) {
+                        message.error('在解析部分链接时出现问题，请检查键入信息', 5)
+                    }
                     if (Array.isArray(current)) {
                         return [...current, ...previous]
                     }
@@ -89,7 +92,7 @@ class App extends Component {
                 message.loading(`Processing ${counter} of ${lines.length}`, 0.9)
                 await new Promise(resolve => setTimeout(resolve, 1000))
             }
-            message.info('All node added', 1)
+            message.success('节点添加完毕！部分检测可能尚未完成，请耐心等待……', 3)
         }
 
         action()
@@ -123,7 +126,7 @@ class App extends Component {
                                 onClick={() => this.addHost(this.state.input)}
                                 style={{ width: '20%' }}
                                 type="primary">
-                            Ping</Button>
+                                Ping</Button>
                         </Input.Group>
                         <br />
                         <Input.Group compact>
@@ -131,7 +134,7 @@ class App extends Component {
                                 onClick={this.showModal}
                                 style={{ width: '50%' }}
                                 type="primary">
-                            批量测试</Button>
+                                批量测试</Button>
 
                         </Input.Group>
                         <Row>
@@ -152,16 +155,27 @@ class App extends Component {
                     </Layout.Content>
                 </Layout>
                 <Modal
-                    title = '批量添加'
-                    visible = {this.state.displayModal}
-                    onCancel = {this.handleCancel}
-                    onOk = {this.handleMultiAdd}
+                    title='批量添加'
+                    visible={this.state.displayModal}
+                    onCancel={this.handleCancel}
+                    onOk={this.handleMultiAdd}
                 >
                     <TextArea
                         placeholder="Input context"
                         autosize={{ minRows: 6 }}
                         onChange={this.updateText.bind(this)} />
-                    <small>使用 域名:端口, SSR 链接, 或者 sub:SSR订阅地址 来测试 一行一个</small>
+                    <small>目前支持以下链接格式：</small>
+                    <small>
+                        <li>
+                            <ul><code>域名:端口 (IP:PORT)</code></ul>
+                            <ul><code>SSR 链接 (ssr://)</code></ul>
+                            <ul><code>sub:SSR订阅地址 (sub:https://ADDRESS)</code></ul>
+                            <ul><code>SS 链接 (ss://)</code></ul>
+                        </li>
+                    </small>
+                    <small>
+                        一行一个链接，一次可混合多种链接检测
+                    </small>
                 </Modal>
                 <Footbar />
             </div>
