@@ -68,7 +68,7 @@ class PingCard extends Component {
                         return this.props.host + ':' + this.props.port
                     }
                     return this.props.title
-                }).bind(this)()}
+                })()}
             >
                 <Row>
                     {serverList.map(item =>
