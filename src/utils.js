@@ -31,13 +31,39 @@ function urlSafeBase64Decode(encoded) {
 }
 
 /**
+ * https://shadowsocks.org/en/config/quick-guide.html
+ * Origin ss://BASE64-ENCODED-STRING-WITHOUT-PADDING#TAG
+ * Plain text ss://method:password@hostname:port
+ *
+ * @param link
+ * @returns {Promise<{title: *, host: *, port: number}>}
+ */
+async function parseSSLink(link) {
+    const split = link.split('#')
+    const originLink = urlSafeBase64Decode(split[0].substr(5))
+    const a = originLink.split(':')
+    const port = Number(a[2])
+    const host = a[1].split('@')[1]
+
+    if (port >= 1 && port <= 65535 && host) {
+        return {
+            title: split[1] === '' ? host : split[1],
+            host: host,
+            port: Number(port),
+        }
+    }
+
+    return null
+}
+
+/**
  *
  * @param {string} link
  * @returns {object} parsed object
  */
 function parseSSRLink(link) {
     let originLink = urlSafeBase64Decode(link.substr(6))
-    const decoded = { }
+    const decoded = {}
 
     const keys = ['server', 'server_port', 'portocol', 'method', 'obfs', 'password']
 
@@ -50,7 +76,7 @@ function parseSSRLink(link) {
         decodeURI(originLink.substr(2))
             .replace(/"/g, '\\"')
             .replace(/&/g, '","')
-            .replace(/=/g,'":"') + '"}')
+            .replace(/=/g, '":"') + '"}')
 
     return {
         title: urlSafeBase64Decode(qs['remarks']),
@@ -106,9 +132,13 @@ async function parseSSRSubscription(origin) {
  */
 async function parseLink(link) {
     try {
+        if (link.startsWith('ss://')) {
+            return parseSSLink(link)
+        }
         if (link.startsWith('ssr://')) {
             return parseSSRLink(link)
-        } if (link.startsWith('sub:')) {
+        }
+        if (link.startsWith('sub:')) {
             return await parseSSRSubscription(link)
         }
         return parseNormalLink(link)
