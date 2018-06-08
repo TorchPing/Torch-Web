@@ -29,9 +29,9 @@ class App extends Component {
 
     addHost = (docs) => {
         this.setState(pre => {
-            pre.hosts = [Object.assign({
-                'uuid': uuid.v4(),
-            }, docs), ...pre.hosts]
+            pre.hosts = [Object.assign({}, docs, {
+                uuid: uuid.v4(),
+            }), ...pre.hosts]
             return pre
         })
     }
@@ -60,6 +60,28 @@ class App extends Component {
         })
     }
 
+    reTest = () => {
+        const action = async () => {
+            const oldTests = this.state.hosts
+            let counter = 0
+
+            this.setState(state => {
+                state.hosts = []
+                return state
+            })
+
+            for (const item of oldTests.reverse()) {
+                counter += 1
+                item.uuid = null
+                this.addHost(item)
+                message.loading(`Processing ${counter} of ${oldTests.length}`, 0.9)
+                await new Promise(resolve => setTimeout(resolve, 1000))
+            }
+        }
+
+        action().catch(err => { console.log(err) })
+    }
+
     handleCancel = () => {
         this.setState({
             displayModal: false,
@@ -68,6 +90,8 @@ class App extends Component {
 
     handleMultiAdd = () => {
         this.handleCancel()
+
+        message.info('Processing links, please wait')
 
         const action = async () => {
             let counter = 0
@@ -122,7 +146,7 @@ class App extends Component {
                                 onChange={this.updatePort.bind(this)}
                                 placeholder="Port"
                                 style={{ width: '20%' }} />
-                            <Button
+                            <Button icon="search"
                                 onClick={() => this.addHost(this.state.input)}
                                 style={{ width: '20%' }}
                                 type="primary">
@@ -133,9 +157,15 @@ class App extends Component {
                             <Button
                                 onClick={this.showModal}
                                 style={{ width: '50%' }}
+                                icon="database"
                                 type="primary">
                                 批量测试</Button>
-
+                            <Button
+                                onClick={this.reTest}
+                                style={{ width: '50%' }}
+                                icon="retweet"
+                                type="normal">
+                                重新测试</Button>
                         </Input.Group>
                         <Row>
                             {this.state.hosts.map(item => {
