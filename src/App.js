@@ -135,11 +135,6 @@ class App extends Component {
             <div>
                 <Helmet>
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97074604-2" />
-                    <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'UA-97074604-2');`}} />
                 </Helmet>
                 <Navbar />
                 <Layout className="siteContext">
@@ -217,6 +212,11 @@ class App extends Component {
                     </small>
                 </Modal>
                 <Footbar />
+                <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-97074604-2');`}} />
             </div>
         )
     }
