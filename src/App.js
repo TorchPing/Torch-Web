@@ -209,7 +209,7 @@ class App extends Component {
                 </Modal>
                 <Footbar />
 
-                <script dangerouslySetInnerHTML={{__html: `function(d, s, u){
+                <script dangerouslySetInnerHTML={{__html: `(function(d, s, u){
                     var j = d.createElement(s)
                     j.async = true
                     j.src = 'https://www.googletagmanager.com/gtag/js?id=' + u
@@ -219,7 +219,7 @@ class App extends Component {
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
                     gtag('config', u);
-                }(document, 'script', 'UA-97074604-2')`}} />
+                })(document, 'script', 'UA-97074604-2')`}} />
             </div>
         )
     }
