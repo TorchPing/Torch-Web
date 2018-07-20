@@ -13,6 +13,7 @@ import {
     message } from 'antd'
 import uuid from 'uuid'
 import './App.css'
+import { Helmet } from 'react-helmet'
 
 const { TextArea } = Input
 
@@ -132,6 +133,14 @@ class App extends Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97074604-2" />
+                    <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'UA-97074604-2');`}} />
+                </Helmet>
                 <Navbar />
                 <Layout className="siteContext">
                     <Layout.Content style={{ padding: '16px 32px' }}>
@@ -208,18 +217,6 @@ class App extends Component {
                     </small>
                 </Modal>
                 <Footbar />
-
-                <script dangerouslySetInnerHTML={{__html: `(function(d, s, u){
-                    var j = d.createElement(s)
-                    j.async = true
-                    j.src = 'https://www.googletagmanager.com/gtag/js?id=' + u
-                    var f = d.getElementsByTagName(s)[0]
-                    f.parentNode.insertBefore(j, f);
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', u);
-                })(document, 'script', 'UA-97074604-2')`}} />
             </div>
         )
     }
