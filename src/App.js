@@ -131,6 +131,13 @@ class App extends Component {
     }
 
     render() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            window.dataLayer.push(arguments)
+        }
+        gtag('js', new Date())
+        gtag('config', 'UA-97074604-2')
+
         return (
             <div>
                 <Helmet>
@@ -212,11 +219,6 @@ class App extends Component {
                     </small>
                 </Modal>
                 <Footbar />
-                <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'UA-97074604-2');`}} />
             </div>
         )
     }
