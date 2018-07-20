@@ -208,6 +208,18 @@ class App extends Component {
                     </small>
                 </Modal>
                 <Footbar />
+
+                <script dangerouslySetInnerHTML={{__html: `function(d, s, u){
+                    var j = d.createElement(s)
+                    j.async = true
+                    j.src = 'https://www.googletagmanager.com/gtag/js?id=' + u
+                    var f = d.getElementsByTagName(s)[0]
+                    f.parentNode.insertBefore(j, f);
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', u);
+                }(document, 'script', 'UA-97074604-2')`}} />
             </div>
         )
     }
