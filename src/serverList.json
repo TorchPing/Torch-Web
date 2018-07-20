@@ -18,4 +18,8 @@
     "name": "China-Guangzhou",
     "address": "https://torch-indexyz.doge.me",
     "info": "DogeSpeed https://doge.me"
+}, {
+    "name": "USA-Central",
+    "address": "https://us-central1-proud-reach-201202.cloudfunctions.net/Torch",
+    "info": "Indexyz, Run In Google Cloud Functions"
 }]
