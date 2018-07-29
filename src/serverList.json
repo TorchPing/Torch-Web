@@ -22,4 +22,8 @@
     "name": "USA-Central",
     "address": "https://us-central1-proud-reach-201202.cloudfunctions.net/Torch",
     "info": "Indexyz, Run In Google Cloud Functions"
+}, {
+    "name": "China-Shanghai-Aliyun",
+    "address": "https://cn-sh-01.torch.flexible.njs.app",
+    "info": "WallLink https://walllink.net"
 }]
