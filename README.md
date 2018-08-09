@@ -20,5 +20,15 @@ yarn
 yarn run start
 ```
 
+## Build
+
+* Replace `src/serverList.json` first if necessary
+
+```
+cd Torch-Web
+docker build torch-web .
+```
+
 ## License
+
 [MIT](https://github.com/Indexyz/Torch-Web/blob/master/LICENSE)
