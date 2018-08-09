@@ -131,7 +131,7 @@ class App extends Component {
     }
 
     render() {
-        window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || []
         function gtag(){
             window.dataLayer.push(arguments)
         }
