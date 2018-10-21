@@ -1,9 +1,9 @@
 [{
-    "name": "China-Guizhou",
+    "name": "China-贵州",
     "address": "https://cn-gz-tcping.torch.njs.app",
     "info": "Indexyz"
 }, {
-    "name": "China-Shanghai",
+    "name": "China-上海",
     "address": "https://cn-sh-tcping.torch.njs.app",
     "info": "ItsLucas"
 }, {
@@ -11,11 +11,11 @@
     "address": "https://usa-los-tcping.torch.njs.app",
     "info": "Indexyz"
 }, {
-    "name": "China-Quanzhou",
+    "name": "China-泉州",
     "address": "https://cn-qz-tcping.torch.njs.app",
     "info": "Indexyz"
 }, {
-    "name": "China-Qingdao",
+    "name": "China-青岛",
     "address": "https://torch-ali-indexyz.doge.me",
     "info": "DogeSpeed https://doge.me"
 }, {
@@ -23,7 +23,11 @@
     "address": "https://us-central1-proud-reach-201202.cloudfunctions.net/Torch",
     "info": "Indexyz, Run In Google Cloud Functions"
 }, {
-    "name": "China-Shanghai-Aliyun",
+    "name": "China-上海-阿里云",
     "address": "https://cn-sh-01.torch.flexible.njs.app",
     "info": "WallLink https://walllink.net"
+}, {
+    "name": "China-重庆-腾讯云",
+    "address": "https://cn-cq-tcping.torch.njs.app",
+    "info": "Indexyz"
 }]
