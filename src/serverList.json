@@ -3,10 +3,6 @@
     "address": "https://cn-gz-tcping.torch.njs.app",
     "info": "Indexyz"
 }, {
-    "name": "China-上海",
-    "address": "https://cn-sh-tcping.torch.njs.app",
-    "info": "ItsLucas"
-}, {
     "name": "USA-LOS",
     "address": "https://usa-los-tcping.torch.njs.app",
     "info": "Indexyz"
@@ -30,4 +26,8 @@
     "name": "China-重庆-腾讯云",
     "address": "https://cn-cq-tcping.torch.njs.app",
     "info": "Indexyz"
+}, {
+    "name": "China-成都-腾讯云",
+    "address": "https://cn-chengdu-tcping.torch.njs.app",
+    "info": "仟佰星云 https://qianbai.tw"
 }]
