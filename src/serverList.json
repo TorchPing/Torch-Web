@@ -31,7 +31,11 @@
     "address": "https://cn-chengdu-tcping.torch.njs.app",
     "info": "仟佰星云 https://qianbai.tw"
 }, {
-    "name": "China-宿迁-电信"
+    "name": "China-宿迁-电信",
     "address": "https://cn-double-nimaqu-tcping.torch.njs.app",
     "info": "https://www.scorpioud.com"
+}, {
+    "name": "China-深圳-阿里云",
+    "address": "https://cn-shenzhen-aliyun-tcping.torch.njs.app",
+    "info": "仟佰星云 https://qianbai.tw"
 }]
