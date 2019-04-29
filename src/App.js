@@ -210,7 +210,8 @@ class App extends Component {
                         <li>
                             <ul><code>域名:端口 (IP:PORT)</code></ul>
                             <ul><code>SSR 链接 (ssr://)</code></ul>
-                            <ul><code>sub:SSR订阅地址 (sub:https://ADDRESS)</code></ul>
+                            <ul><code>VMESS 链接 (vmess://)</code></ul>
+                            <ul><code>sub:订阅地址 (sub:https://ADDRESS)</code></ul>
                             <ul><code>SS 链接 (ss://)</code></ul>
                         </li>
                     </small>

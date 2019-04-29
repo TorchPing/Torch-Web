@@ -56,6 +56,16 @@ async function parseSSLink(link) {
     return null
 }
 
+function parseV2rayLink(link) {
+    const jsonData = JSON.parse(urlSafeBase64Decode(link.substr(8)))
+
+    return {
+        title: jsonData['ps'],
+        host: jsonData['host'],
+        port: Number(jsonData['port']),
+    }
+}
+
 /**
  *
  * @param {string} link
@@ -108,11 +118,11 @@ function parseNormalLink(origin) {
 }
 
 /**
- * Test ShadowsocksR Subscription link
+ * Test Subscription link
  *
  * @param {string} origin
  */
-async function parseSSRSubscription(origin) {
+async function parseSubscription(origin) {
     const subscriptionLink = origin.substr(4)
     const reqURL = `https://cors-anywhere.herokuapp.com/${subscriptionLink}`
     const resp = await axios.get(reqURL)
@@ -139,7 +149,10 @@ async function parseLink(link) {
             return parseSSRLink(link)
         }
         if (link.startsWith('sub:')) {
-            return await parseSSRSubscription(link)
+            return await parseSubscription(link)
+        }
+        if (link.startsWith('vmess://')) {
+            return parseV2rayLink(link)
         }
         return parseNormalLink(link)
     } catch (e) {
