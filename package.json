@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "3.11.5",
+    "antd": "3.16.6",
     "axios": "^0.18.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-flexbox-grid": "^2.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-flexbox-grid": "^2.1.2",
     "react-helmet": "^5.2.0",
-    "react-scripts": "1.1.4",
-    "uuid": "^3.2.1"
+    "react-scripts": "3.0.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,9 +20,21 @@
     "lint": "eslint src"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-babel": "^7.0.2",
-    "eslint-plugin-flowtype": "^2.47.1",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint": "^5.16.0",
+    "eslint-config-babel": "^9.0.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
