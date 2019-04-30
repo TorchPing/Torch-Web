@@ -213,7 +213,7 @@ class App extends Component {
                             <ul><code>VMESS 链接 (vmess://)</code></ul>
                             <ul><code>sub:订阅地址 (sub:https://ADDRESS)</code></ul>
                             <ul><code>SS 链接 (ss://)</code></ul>
-                        </li>
+                        </li>arn
                     </small>
                     <small>
                         一行一个链接，一次可混合多种链接检测

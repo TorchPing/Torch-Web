@@ -61,7 +61,7 @@ function parseV2rayLink(link) {
 
     return {
         title: jsonData['ps'],
-        host: jsonData['host'],
+        host: jsonData['add'],
         port: Number(jsonData['port']),
     }
 }
@@ -117,6 +117,15 @@ function parseNormalLink(origin) {
     }
 }
 
+const avalibleSubMap = [
+    'ssr://',
+    'vmess://',
+]
+
+function inSubMap(link) {
+    return avalibleSubMap.filter(it => link.startsWith(it)).length > 0
+}
+
 /**
  * Test Subscription link
  *
@@ -127,9 +136,10 @@ async function parseSubscription(origin) {
     const reqURL = `https://cors-anywhere.herokuapp.com/${subscriptionLink}`
     const resp = await axios.get(reqURL)
 
-    const r = urlSafeBase64Decode(resp.data)
+    const r = urlSafeBase64Decode(fillMissingPadding(resp.data))
         .split('\n')
         .map(item => item.trim())
+        .filter(inSubMap)
 
     return Promise.all(r.map(parseLink))
 }
