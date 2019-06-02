@@ -3,8 +3,12 @@
     "address": "https://usa-los-tcping.torch.njs.app",
     "info": "Indexyz"
 }, {
-    "name": "China-青岛",
-    "address": "https://torch-ali-indexyz.doge.me",
+    "name": "China-广州-电信",
+    "address": "https://guangzhou.telecom.torch.never.eu.org",
+    "info": "DogeSpeed https://doge.me"
+}, {
+    "name": "China-广州-移动",
+    "address": "https://guangzhou.mobile.torch.never.eu.org",
     "info": "DogeSpeed https://doge.me"
 }, {
     "name": "USA-Central",
