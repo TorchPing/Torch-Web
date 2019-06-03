@@ -6,6 +6,8 @@ node_js:
 install:
     - yarn
 
+script: 'true'
+
 cache:
   directories:
     - "node_modules"
