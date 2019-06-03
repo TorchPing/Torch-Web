@@ -11,6 +11,10 @@
     "address": "https://guangzhou.mobile.torch.never.eu.org",
     "info": "DogeSpeed https://doge.me"
 }, {
+    "name": "China-广州-联通",
+    "address": "https://guangzhou.unicom.torch.never.eu.org",
+    "info": "DogeSpeed https://doge.me"
+}, {
     "name": "USA-Central",
     "address": "https://us-central1-proud-reach-201202.cloudfunctions.net/Torch",
     "info": "Indexyz, Run In Google Cloud Functions"
